@@ -3,6 +3,7 @@ var audioElements = document.getElementsByTagName('audio'),
 
 for (var i = 0; i < audioElements.length; i++) {
     sounds[audioElements[i].className] = audioElements[i];
+    sounds[audioElements[i].className].load();
 }
 
 // Solves chrome for andriod issue 178297 Require user gesture
@@ -35,8 +36,6 @@ function playSound(sound) {
     for (var key in sounds) {
       sounds[key].pause();
     }
-
-    sounds[sound].load();
     sounds[sound].play();
 }
 
